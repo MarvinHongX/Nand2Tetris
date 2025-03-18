@@ -13,7 +13,7 @@
 // int newStatus = 0;
 // int screenAddress = 0;
 // int i = 0;
-
+//
 // while (true) { 
 //    if (KBD == 0) {
 //        newStatus = 0;
@@ -40,7 +40,7 @@ D=M
 0;JMP
 
 (LOOP)
-	// if (key isn't pressed): jump to CHECK_STATUS with ARG=0
+    // if (key isn't pressed): jump to CHECK_STATUS with ARG=0
     @KBD
     D=M
     @CHECK_STATUS
@@ -49,7 +49,7 @@ D=M
     D=-1
     
 (CHECK_STATUS)
-	// if (status not changed): continue loop
+    // if (status not changed): continue loop
     @ARG
     M=D
     @status
@@ -71,7 +71,7 @@ D=M
     M=D
     
 (SET_SCREEN)
-	// i--
+    // i--
     @i
     D=M-1
     M=D
