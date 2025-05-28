@@ -34,7 +34,7 @@ The compiled `.class` files will be placed under the `out/vmtranslator/` directo
 ### 2. Execute
 
 ```bash
-java -cp out vmtranslator.VMTranslator [input_file.vm]
+java -cp out vmtranslator.VMTranslator [input_file.vm | directory]
 ```
 
 Example:
