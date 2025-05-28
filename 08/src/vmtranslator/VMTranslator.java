@@ -13,7 +13,7 @@ import java.util.*;
  * - Translate commands into Hack assembly using CodeWriter.
  * - Write the output .asm file.
  *
- * This follows the structure of Project 7 from the Nand2Tetris course.
+ * This follows the structure of Project 8 from the Nand2Tetris course.
  */
 public class VMTranslator {
     public static void main(String[] args) {
