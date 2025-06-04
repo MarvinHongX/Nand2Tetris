@@ -100,6 +100,7 @@ D=M
 @R13
 A=M
 M=D
+// label LOOP
 (LOOP)
 // push argument 0
 @ARG
@@ -112,13 +113,16 @@ A=M
 M=D
 @SP
 M=M+1
+// if-goto COMPUTE_ELEMENT
 @SP
 AM=M-1
 D=M
 @COMPUTE_ELEMENT
 D;JNE
+// goto END
 @END
 0;JMP
+// label COMPUTE_ELEMENT
 (COMPUTE_ELEMENT)
 // push that 0
 @THAT
@@ -232,6 +236,8 @@ D=M
 @R13
 A=M
 M=D
+// goto LOOP
 @LOOP
 0;JMP
+// label END
 (END)

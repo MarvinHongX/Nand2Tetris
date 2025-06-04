@@ -3,6 +3,7 @@
 D=A
 @SP
 M=D
+// call Sys.init 0
 @RETURN_0
 D=A
 @SP
@@ -53,6 +54,7 @@ M=D
 @Sys.init
 0;JMP
 (RETURN_0)
+// function Sys.init 0
 (Sys.init)
 // push constant 4000
 @4000
@@ -92,6 +94,7 @@ D=M
 @R13
 A=M
 M=D
+// call Sys.main 0
 @RETURN_1
 D=A
 @SP
@@ -153,9 +156,12 @@ D=M
 @R13
 A=M
 M=D
+// label LOOP
 (LOOP)
+// goto LOOP
 @LOOP
 0;JMP
+// function Sys.main 5
 (Sys.main)
 @0
 D=A
@@ -301,6 +307,7 @@ A=M
 M=D
 @SP
 M=M+1
+// call Sys.add12 1
 @RETURN_2
 D=A
 @SP
@@ -441,6 +448,7 @@ AM=M-1
 D=M
 A=A-1
 M=D+M
+// return
 @LCL
 D=M
 @R13
@@ -483,6 +491,7 @@ M=D
 @R14
 A=M
 0;JMP
+// function Sys.add12 0
 (Sys.add12)
 // push constant 4002
 @4002
@@ -547,6 +556,7 @@ AM=M-1
 D=M
 A=A-1
 M=D+M
+// return
 @LCL
 D=M
 @R13

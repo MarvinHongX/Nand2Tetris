@@ -3,6 +3,7 @@
 D=A
 @SP
 M=D
+// call Sys.init 0
 @RETURN_0
 D=A
 @SP
@@ -53,6 +54,7 @@ M=D
 @Sys.init
 0;JMP
 (RETURN_0)
+// function Class1.set 0
 (Class1.set)
 // push argument 0
 @ARG
@@ -106,6 +108,7 @@ A=M
 M=D
 @SP
 M=M+1
+// return
 @LCL
 D=M
 @R13
@@ -148,6 +151,7 @@ M=D
 @R14
 A=M
 0;JMP
+// function Class1.get 0
 (Class1.get)
 // push static 0
 @Class1.0
@@ -171,6 +175,7 @@ AM=M-1
 D=M
 A=A-1
 M=M-D
+// return
 @LCL
 D=M
 @R13
@@ -213,6 +218,7 @@ M=D
 @R14
 A=M
 0;JMP
+// function Class2.set 0
 (Class2.set)
 // push argument 0
 @ARG
@@ -266,6 +272,7 @@ A=M
 M=D
 @SP
 M=M+1
+// return
 @LCL
 D=M
 @R13
@@ -308,6 +315,7 @@ M=D
 @R14
 A=M
 0;JMP
+// function Class2.get 0
 (Class2.get)
 // push static 0
 @Class2.0
@@ -331,6 +339,7 @@ AM=M-1
 D=M
 A=A-1
 M=M-D
+// return
 @LCL
 D=M
 @R13
@@ -373,6 +382,7 @@ M=D
 @R14
 A=M
 0;JMP
+// function Sys.init 0
 (Sys.init)
 // push constant 6
 @6
@@ -390,6 +400,7 @@ A=M
 M=D
 @SP
 M=M+1
+// call Class1.set 2
 @RETURN_1
 D=A
 @SP
@@ -467,6 +478,7 @@ A=M
 M=D
 @SP
 M=M+1
+// call Class2.set 2
 @RETURN_2
 D=A
 @SP
@@ -528,6 +540,7 @@ D=M
 @R13
 A=M
 M=D
+// call Class1.get 0
 @RETURN_3
 D=A
 @SP
@@ -578,6 +591,7 @@ M=D
 @Class1.get
 0;JMP
 (RETURN_3)
+// call Class2.get 0
 @RETURN_4
 D=A
 @SP
@@ -628,6 +642,8 @@ M=D
 @Class2.get
 0;JMP
 (RETURN_4)
+// label END
 (END)
+// goto END
 @END
 0;JMP

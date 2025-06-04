@@ -19,6 +19,7 @@ D=M
 @R13
 A=M
 M=D
+// label LOOP
 (LOOP)
 // push argument 0
 @ARG
@@ -110,6 +111,7 @@ A=M
 M=D
 @SP
 M=M+1
+// if-goto LOOP
 @SP
 AM=M-1
 D=M

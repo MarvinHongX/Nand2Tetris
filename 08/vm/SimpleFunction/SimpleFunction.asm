@@ -1,3 +1,4 @@
+// function SimpleFunction.test 2
 (SimpleFunction.test)
 @0
 D=A
@@ -79,6 +80,7 @@ AM=M-1
 D=M
 A=A-1
 M=M-D
+// return
 @LCL
 D=M
 @R13

@@ -9,35 +9,41 @@ import java.util.Scanner;
  * It provides access to command components and the command type.
  */
 public class Parser {
-    private Scanner scanner;
+    private final Scanner scanner;
     private String currentLine;
+    private String nextLine;
 
     /**
      * Constructor to initialize the parser with the input file.
      */
     public Parser(File inputFile) throws FileNotFoundException {
         this.scanner = new Scanner(inputFile);
+        advanceToNextCommand();
     }
 
     /**
      * Checks if there are more commands in the input.
      */
     public boolean hasMoreCommands() {
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine().trim();
-            if (!line.isEmpty() && !line.startsWith("//")) {
-                currentLine = line.split("//")[0].trim(); // Remove inline comment
-                return true;
-            }
-        }
-        return false;
+        return nextLine != null;
     }
 
-    /**
-     * Advances the parser to the next command.
-     */
     public void advance() {
-        // currentLine already updated in hasMoreCommands()
+        if (!hasMoreCommands()) {
+            throw new IllegalStateException("No more commands");
+        }
+        currentLine = nextLine;
+        advanceToNextCommand();
+    }
+
+    private void advanceToNextCommand() {
+        nextLine = null;
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine().trim();
+            if (line.isEmpty() || line.startsWith("//")) continue;
+            nextLine = line.split("//")[0].trim();
+            break;
+        }
     }
 
     /**

@@ -3,6 +3,7 @@
 D=A
 @SP
 M=D
+// call Sys.init 0
 @RETURN_0
 D=A
 @SP
@@ -53,6 +54,7 @@ M=D
 @Sys.init
 0;JMP
 (RETURN_0)
+// function Main.fibonacci 0
 (Main.fibonacci)
 // push argument 0
 @ARG
@@ -91,13 +93,16 @@ M=0
 A=M-1
 M=-1
 (END_1)
+// if-goto N_LT_2
 @SP
 AM=M-1
 D=M
 @N_LT_2
 D;JNE
+// goto N_GE_2
 @N_GE_2
 0;JMP
+// label N_LT_2
 (N_LT_2)
 // push argument 0
 @ARG
@@ -110,6 +115,7 @@ A=M
 M=D
 @SP
 M=M+1
+// return
 @LCL
 D=M
 @R13
@@ -152,6 +158,7 @@ M=D
 @R14
 A=M
 0;JMP
+// label N_GE_2
 (N_GE_2)
 // push argument 0
 @ARG
@@ -178,6 +185,7 @@ AM=M-1
 D=M
 A=A-1
 M=M-D
+// call Main.fibonacci 1
 @RETURN_2
 D=A
 @SP
@@ -253,6 +261,7 @@ AM=M-1
 D=M
 A=A-1
 M=M-D
+// call Main.fibonacci 1
 @RETURN_3
 D=A
 @SP
@@ -309,6 +318,7 @@ AM=M-1
 D=M
 A=A-1
 M=D+M
+// return
 @LCL
 D=M
 @R13
@@ -351,6 +361,7 @@ M=D
 @R14
 A=M
 0;JMP
+// function Sys.init 0
 (Sys.init)
 // push constant 4
 @4
@@ -360,6 +371,7 @@ A=M
 M=D
 @SP
 M=M+1
+// call Main.fibonacci 1
 @RETURN_4
 D=A
 @SP
@@ -410,6 +422,8 @@ M=D
 @Main.fibonacci
 0;JMP
 (RETURN_4)
+// label END
 (END)
+// goto END
 @END
 0;JMP
